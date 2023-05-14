@@ -51,11 +51,8 @@ public class EmployeeMenu
                 System.out.println("-" + (i + 1) + "--------------------------------");
                 System.out.println();
 
-                do 
-                {
-                    System.out.println("01. Car for people with disabilities? [Y/N]");
-                    disabled[i] = ScannerUtil.takeString();
-                } while (disabled[i].toLowerCase() != "y" && disabled[i] != "n");
+                System.out.println("01. Car for people with disabilities? [Y/N]");
+                disabled[i] = ScannerUtil.takeString();
                 System.out.println("02. Body type:");
                 bodyType[i] = ScannerUtil.takeString();
                 System.out.println("03. Fuel Type:");

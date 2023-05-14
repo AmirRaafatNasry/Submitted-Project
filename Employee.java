@@ -8,13 +8,23 @@ public class Employee extends Human
 
     public static void login() 
     {
-        while (true) 
+        String username;
+        while(true)
         {
             System.out.println("Username: ");
-            String username = ScannerUtil.takeString();
+            username = ScannerUtil.takeString();
+            if (username.equals("admin"))
+                break;
+            else
+                System.out.println("Wrong Entry.");
+        }
+
+        String password;
+        while (true) 
+        {
             System.out.println("Password: ");
-            String password = ScannerUtil.takeString();
-            if (username.equals("admin") && password.equals("password"))
+            password = ScannerUtil.takeString();
+            if(password.equals("password"))
                 break;
             else
                 System.out.println("Wrong Entry.");

@@ -8,19 +8,19 @@ public class ScannerUtil
     // String
     public static String takeString() 
     {
-        while (true) 
-        {
-            try 
-            {
+        // while (true) 
+        // {
+        //     try 
+        //     {
                 String text = input.next();
                 return text;
-            }
-            catch (InputMismatchException exception) 
-            {
-                System.out.println("Expected Text.");
-                input.next();
-            }
-        }
+        //     }
+        //     catch (InputMismatchException exception) 
+        //     {
+        //         System.out.println("Expected Text.");
+        //         input.next();
+        //     }
+        // }
     }
 
     // Integer
