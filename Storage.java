@@ -1,9 +1,11 @@
-public class Storage 
-{
-    // Attributes
+public class Storage {
+    static int max = 50; // To avoid magic number
+    static int rentableCarCount = 0;
+    static int sellableCarCount = 0;
+
     static Employee admin = new Employee("admin", "admin");
     static Customer customer;
 
-    static Rent rentableCar[] = new Rent[50];
-    static Sell buyableCar[] = new Sell[50];
+    static RentableCar rentableCar[] = new RentableCar[max];
+    static SellableCar sellableCar[] = new SellableCar[max];
 }

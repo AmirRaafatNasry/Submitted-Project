@@ -1,52 +1,47 @@
-public class Customer extends Human
-{
+public class Customer extends Human {
+    // Attributes
     private String email;
-    private int phoneNumber;
-    private Rent rentedCars;
-    private Sell boughtCars;
+    private String phoneNumber;
+    private RentableCar rentedCars;
+    private SellableCar boughtCars;
 
     // Constructor
-    public Customer(String email, String username, String password, int phoneNumber)
-    {
+    public Customer(String email, String username, String password, String phoneNumber) {
         super(username, password);
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters (Accessors) & Setters (Mutators)
-    public String getEmail() 
-    {
+    // Getters & Setters
+    public String getEmail() {
         return email;
     }
-    public void setEmail(String email) 
-    {
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public int getPhoneNumber() 
-    {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) 
-    {
+
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Rent getRentedCars() 
-    {
+    public RentableCar getRentedCars() {
         return rentedCars;
     }
-    public void setRentedCars(Rent rentableCar) 
-    {
+
+    public void setRentedCars(RentableCar rentableCar) {
         this.rentedCars = rentableCar;
     }
 
-    public Sell getBoughtCars() 
-    {
+    public SellableCar getBoughtCars() {
         return boughtCars;
     }
-    public void setBoughtCars(Sell boughtCars) 
-    {
+
+    public void setBoughtCars(SellableCar boughtCars) {
         this.boughtCars = boughtCars;
     }
 

@@ -1,18 +1,17 @@
-public class Car 
-{
+public class Car {
     // Attributes
-    private String disabled;
+    private String accessibility;
     private String bodyType;
     private String fuelType;
     private String transmissionType;
     private String color;
     private int numberOfSeats;
-    private boolean available = true;
+    private boolean isAvailable = true;
 
     // Constructor
-    public Car(String disabled, String bodyType, String fuelType, String transmissionType, String color, int numberOfSeats) 
-    {
-        this.disabled = disabled;
+    public Car(String accessibility, String bodyType, String fuelType, String transmissionType, String color,
+            int numberOfSeats) {
+        this.accessibility = accessibility;
         this.bodyType = bodyType;
         this.fuelType = fuelType;
         this.transmissionType = transmissionType;
@@ -20,67 +19,60 @@ public class Car
         this.numberOfSeats = numberOfSeats;
     }
 
-    // Getters (Accessors) & Setters (Mutators)
-    public String getDisabled() 
-    {
-        return disabled;
-    }
-    public void setDisabled(String disabled) 
-    {
-        this.disabled = disabled;
+    // Getters & Setters
+    public String getAccessibility() {
+        return accessibility;
     }
 
-    public String getBodyType() 
-    {
+    public void setAccessibility(String accessibility) {
+        this.accessibility = accessibility;
+    }
+
+    public String getBodyType() {
         return bodyType;
     }
-    public void setBodyType(String bodyType) 
-    {
+
+    public void setBodyType(String bodyType) {
         this.bodyType = bodyType;
     }
 
-    public String getFuelType() 
-    {
+    public String getFuelType() {
         return fuelType;
     }
-    public void setFuelType(String fuelType) 
-    {
+
+    public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
 
-    public String getTransmissionType() 
-    {
+    public String getTransmissionType() {
         return transmissionType;
     }
-    public void setTransmissionType(String transmissionType) 
-    {
+
+    public void setTransmissionType(String transmissionType) {
         this.transmissionType = transmissionType;
     }
 
-    public String getColor() 
-    {
+    public String getColor() {
         return color;
     }
-    public void setColor(String color) 
-    {
+
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public int getNumberOfSeats() 
-    {
+    public int getNumberOfSeats() {
         return numberOfSeats;
     }
-    public void setNumberOfSeats(int numberOfSeats) 
-    {
+
+    public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public boolean isAvailable() 
-    {
-        return available;
+    public boolean isAvailable() {
+        return isAvailable;
     }
-    public void setAvailable(boolean available) 
-    {
-        this.available = available;
+
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }

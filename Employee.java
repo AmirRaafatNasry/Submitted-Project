@@ -1,30 +1,23 @@
-public class Employee extends Human 
-{
+public class Employee extends Human {
     // Constructor
-    public Employee (String username, String password)
-    {
+    public Employee(String username, String password) {
         super(username, password);
     }
 
-    public static void login() 
-    {
+    public static void login() {
         String username;
-        while(true)
-        {
-            System.out.println("Username: ");
-            username = ScannerUtil.takeString();
-            if (username.equals("admin"))
+        while (true) {
+            username = ScannerUtil.takeString("Username: ");
+            if (username.equals(Storage.admin.getPassword()))
                 break;
             else
                 System.out.println("Wrong Entry.");
         }
 
         String password;
-        while (true) 
-        {
-            System.out.println("Password: ");
-            password = ScannerUtil.takeString();
-            if(password.equals("password"))
+        while (true) {
+            password = ScannerUtil.takeString("Password: ");
+            if (password.equals(Storage.admin.getPassword()))
                 break;
             else
                 System.out.println("Wrong Entry.");

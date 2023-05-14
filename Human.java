@@ -1,33 +1,29 @@
-public class Human 
-{
+public class Human {
     // Attributes
     private String username;
     private String password;
 
     // Constructor for Employee & Customer
-    public Human(String username, String password)
-    {
+    public Human(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    // Getters (Accessors) & Setters (Mutators)
-    
-    public String getUsername() 
-    {
+    // Getters & Setters
+
+    public String getUsername() {
         return username;
     }
-    public void setUsername(String username) 
-    {
+
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() 
-    {
+    public String getPassword() {
         return password;
     }
-    public void setPassword(String password)
-    {
+
+    public void setPassword(String password) {
         this.password = password;
     }
 }

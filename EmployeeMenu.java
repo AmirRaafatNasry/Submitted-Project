@@ -1,94 +1,78 @@
-public class EmployeeMenu 
-{
-    public static void start() 
-    {
+public class EmployeeMenu {
+    public static void start() {
         displayOptions();
     }
 
-    public static void displayOptions() 
-    {
+    public static void displayOptions() {
         System.out.println("01. Add Rentable Car.");
         System.out.println("02. Add Sellable Car.");
         int employeeChoice = ScannerUtil.takeInteger(2, 1);
 
-        System.out.println("Rentable: [50 / " + Rent.getCount() + "]");
-        System.out.println("Sellable: [50 / " + Sell.getCount() + "]");
-        System.out.println("Number of cars you would like to add? ");
-        int SIZE = ScannerUtil.takeInteger();
+        displayCounters();
+        int SIZE = ScannerUtil.takeInteger("Number of cars you would like to add? ");
 
         checkStorage(SIZE, employeeChoice);
     }
 
-    public static void checkStorage(int SIZE, int employeeChoice)
-    {
-        if (Rent.getCount() > 50)
-            System.out.println("Reached the limit!");
-        else if (Sell.getCount() > 50)
-            System.out.println("Reached the limit!");
-        else 
-        {
+    public static void checkStorage(int SIZE, int employeeChoice) {
+        if (Storage.rentableCarCount > 50)
+            System.out.println("Reached the limit for rentable cars!");
+        else if (Storage.sellableCarCount > 50)
+            System.out.println("Reached the limit for sellable car!");
+        else {
             System.out.println("Add Car/s Specifications");
             System.out.println();
             EmployeeMenu.addCar(SIZE, employeeChoice);
         }
-    EmployeeMenu.displayCounters();
+        EmployeeMenu.displayCounters();
     }
 
-    public static void addCar(int SIZE, int employeeChoice) 
-    {
-        String disabled[] = new String[SIZE];
-        String bodyType[] = new String[SIZE];
-        String fuelType[] = new String[SIZE];
-        String transmissionType[] = new String[SIZE];
-        String color[] = new String[SIZE];
-        int numberOfSeats[] = new int[SIZE];
+    public static void addCar(int SIZE, int employeeChoice) {
+        String accessibility;
+        String bodyType;
+        String fuelType;
+        String transmissionType;
+        String color;
+        int numberOfSeats;
 
-        for (int i = 0; i < SIZE; i++) 
-        {
-            while (true) 
-            {
+        for (int i = 0; i < SIZE; i++) {
+            while (true) {
                 System.out.println();
                 System.out.println("-" + (i + 1) + "--------------------------------");
                 System.out.println();
 
-                System.out.println("01. Car for people with disabilities? [Y/N]");
-                disabled[i] = ScannerUtil.takeString();
-                System.out.println("02. Body type:");
-                bodyType[i] = ScannerUtil.takeString();
-                System.out.println("03. Fuel Type:");
-                fuelType[i] = ScannerUtil.takeString();
-                System.out.println("04. Transmission Type:");
-                transmissionType[i] = ScannerUtil.takeString();
-                System.out.println("05. Color:");
-                color[i] = ScannerUtil.takeString();
-                System.out.println("06. Number of Seats :");
-                numberOfSeats[i] = ScannerUtil.takeInteger(8, 2);
+                accessibility = ScannerUtil.takeString("01. Car Accessibility?"); // for people with disabilities
+                bodyType = ScannerUtil.takeString("02. Body Type:");
+                fuelType = ScannerUtil.takeString("03. Fuel Type:");
+                transmissionType = ScannerUtil.takeString("04. Transmission Type:");
+                color = ScannerUtil.takeString("05. Color:");
+                numberOfSeats = ScannerUtil.takeInteger("06. Number of Seats :");
 
                 System.out.println();
                 System.out.println("------------------------------");
                 System.out.println();
 
-                System.out.println("Are you sure about the data you entered? [Y/N]");
-                String condition = ScannerUtil.takeString();
+                String condition = ScannerUtil.takeString("Are you sure about the data you entered? [Y/N]");
                 if (condition.toLowerCase().equals("y"))
                     break;
                 System.out.println();
             }
 
             if (employeeChoice == 1)
-                Storage.rentableCar[i] = new Rent(disabled[i], bodyType[i], fuelType[i], transmissionType[i], color[i], numberOfSeats[i]);
+                Storage.rentableCar[i] = new RentableCar(accessibility, bodyType, fuelType, transmissionType, color,
+                        numberOfSeats);
             else if (employeeChoice == 2)
-                Storage.buyableCar[i] = new Sell(disabled[i], bodyType[i], fuelType[i], transmissionType[i], color[i], numberOfSeats[i]);
+                Storage.sellableCar[i] = new SellableCar(accessibility, bodyType, fuelType, transmissionType, color,
+                        numberOfSeats);
         }
-        
+
     }
 
-    public static void displayCounters()
-    {
+    public static void displayCounters() {
         System.out.println();
-        System.out.println("Total: " + (100 - (Sell.getCount() + Rent.getCount())));
-        System.out.println("Rentable: " + Rent.getCount());
-        System.out.println("Buyable: " + Sell.getCount());
+        System.out.println("Total: " + (100 - (Storage.sellableCarCount + Storage.rentableCarCount)));
+        System.out.println("Rentable: [" + Storage.max + " / " + Storage.rentableCarCount + "]");
+        System.out.println("Sellable: [" + Storage.max + " / " + Storage.sellableCarCount + "]");
         System.out.println();
     }
 
