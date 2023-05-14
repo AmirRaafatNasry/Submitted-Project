@@ -2,6 +2,17 @@ public class CustomerMenu
 {
     public static void start() 
     {
+        
+        System.out.println("Email: ");
+        String email = ScannerUtil.takeString();
+        System.out.println("Username: ");
+        String username = ScannerUtil.takeString();
+        System.out.println("Password: ");
+        String password = ScannerUtil.takeString();
+        System.out.println("Phone number: ");
+        int phoneNumber = ScannerUtil.takeInteger();
+
+        Storage.customer = new Customer(email, username, password, phoneNumber);
         System.out.println("01. Rent");
         System.out.println("02. Buy");
 
@@ -32,6 +43,7 @@ public class CustomerMenu
 
             int rented = ScannerUtil.takeInteger(Rent.getCount(), 1);
             Storage.rentableCar[rented - 1].setAvailable(false);
+            Storage.customer.setRentedCars(Storage.rentableCar[rented - 1]);
         }
 
         else if (customerChoice == 2) 
@@ -61,12 +73,5 @@ public class CustomerMenu
                 Storage.rentableCar[bought - 1].setAvailable(false);
             }
         }
-    register();
-    }
-
-    public static void register()
-    {
-        
-
     }
 }

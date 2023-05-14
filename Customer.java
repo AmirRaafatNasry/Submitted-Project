@@ -2,8 +2,8 @@ public class Customer extends Human
 {
     private String email;
     private int phoneNumber;
-    private int rentedCars[] = new int[50];
-    private int boughtCars[] = new int[50];
+    private Rent rentedCars;
+    private Sell boughtCars;
 
     // Constructor
     public Customer(String email, String username, String password, int phoneNumber)
@@ -32,20 +32,20 @@ public class Customer extends Human
         this.phoneNumber = phoneNumber;
     }
 
-    public int[] getRentedCars() 
+    public Rent getRentedCars() 
     {
         return rentedCars;
     }
-    public void setRentedCars(int[] rentedCars) 
+    public void setRentedCars(Rent rentableCar) 
     {
-        this.rentedCars = rentedCars;
+        this.rentedCars = rentableCar;
     }
 
-    public int[] getBoughtCars() 
+    public Sell getBoughtCars() 
     {
         return boughtCars;
     }
-    public void setBoughtCars(int[] boughtCars) 
+    public void setBoughtCars(Sell boughtCars) 
     {
         this.boughtCars = boughtCars;
     }
