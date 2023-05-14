@@ -1,15 +1,23 @@
 public class MainMenu 
 {
-
     public static void start()
     {
         printRules();
         printInstructions();
+        chooseOption();
+    }
 
-        while (true)
+    public static void chooseOption()
+    {
+        // Options
+        System.out.println("01. Customer");
+        System.out.println("02. Employee");
+        System.out.println("00. Exit");
+
+        // Choose
+        while (true) 
         {
-            displayOptions();
-            switch(ScannerUtil.takeInteger(2, 1))
+            switch (ScannerUtil.takeInteger(2, 1)) 
             {
                 case (1):
                     CustomerMenu.start();
@@ -18,24 +26,20 @@ public class MainMenu
                     Employee.login();
                     EmployeeMenu.start();
                     break;
+                case (0):
+                    System.exit(0);
             }
         }
-    }
-
-    public static void displayOptions()
-    {
-        System.out.println("01. Customer");
-        System.out.println("02. Employee");
     }
 
     public static void printRules() 
     {
         while (true)
         {
-            System.out.println("---------------------------------------------------");
-            System.out.println("\"Quality is Job One\"");
-            System.out.println("- Canadian International College (CIC) Car Agency.");
-            System.out.println("---------------------------------------------------");
+            System.out.println("--------------------------------------------------");
+            System.out.println("\"Quality is Job One.\"");
+            System.out.println("- Canadian International College (CIC) Car Agency");
+            System.out.println("--------------------------------------------------");
             System.out.println("Terms & Condition");
 
             System.out.println("01. ");
@@ -57,10 +61,10 @@ public class MainMenu
             System.out.println("    C) ");
             System.out.println("    D) ");
             System.out.println("---------------------------------------------------");
-    
-            System.out.println("Do you agree to our Terms & Conditions? [true/false]");
-            boolean flag = ScannerUtil.takeBoolean();
-            if (flag)
+
+            System.out.println("Do you agree to our Terms & Conditions? [Y/N]");
+            String condition = ScannerUtil.takeString();
+            if (condition.toLowerCase().equals("y"))
                 break;
         }
     }
@@ -76,9 +80,9 @@ public class MainMenu
             System.out.println("04. ");
             System.out.println("---------------------------------------------------");
 
-            System.out.println("Proceed? [true/false]");
-            boolean flag = ScannerUtil.takeBoolean();
-            if (flag)
+            System.out.println("Proceed? [Y/N]");
+            String condition = ScannerUtil.takeString();
+            if (condition.toLowerCase().equals("y"))
                 break;
         }
     }

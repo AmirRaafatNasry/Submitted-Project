@@ -1,7 +1,9 @@
 public class Storage 
 {
-    static Customer customer[] = new Customer[100];
+    // Attributes
+    static Employee admin = new Employee("admin", "admin");
+    static Customer customer;
 
     static Rent rentableCar[] = new Rent[50];
-    static Buy buyableCar[] = new Buy[50];
+    static Sell buyableCar[] = new Sell[50];
 }

@@ -1,15 +1,16 @@
 public class Car 
 {
     // Attributes
-    private boolean disabled;
+    private String disabled;
     private String bodyType;
     private String fuelType;
     private String transmissionType;
     private String color;
     private int numberOfSeats;
+    private boolean available = true;
 
     // Constructor
-    public Car(boolean disabled, String bodyType, String fuelType, String transmissionType, String color, int numberOfSeats) 
+    public Car(String disabled, String bodyType, String fuelType, String transmissionType, String color, int numberOfSeats) 
     {
         this.disabled = disabled;
         this.bodyType = bodyType;
@@ -20,11 +21,11 @@ public class Car
     }
 
     // Getters (Accessors) & Setters (Mutators)
-    public boolean isDisabled() 
+    public String getDisabled() 
     {
         return disabled;
     }
-    public void setDisabled(boolean disabled) 
+    public void setDisabled(String disabled) 
     {
         this.disabled = disabled;
     }
@@ -72,5 +73,14 @@ public class Car
     public void setNumberOfSeats(int numberOfSeats) 
     {
         this.numberOfSeats = numberOfSeats;
+    }
+
+    public boolean isAvailable() 
+    {
+        return available;
+    }
+    public void setAvailable(boolean available) 
+    {
+        this.available = available;
     }
 }

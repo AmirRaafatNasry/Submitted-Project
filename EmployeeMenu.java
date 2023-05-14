@@ -2,42 +2,60 @@ public class EmployeeMenu
 {
     public static void start() 
     {
-        displayEmployeeOptions();
+        displayOptions();
     }
 
-    public static void displayEmployeeOptions() 
+    public static void displayOptions() 
     {
-        System.out.println("01. Add Car Rental.");
-        System.out.println("02. Add Car Selling.");
+        System.out.println("01. Add Rentable Car.");
+        System.out.println("02. Add Sellable Car.");
         int employeeChoice = ScannerUtil.takeInteger(2, 1);
-        System.out.println("Number of Cars:");
+
+        System.out.println("Rentable: [50 / " + Rent.getCount() + "]");
+        System.out.println("Sellable: [50 / " + Sell.getCount() + "]");
+        System.out.println("Number of cars you would like to add? ");
         int SIZE = ScannerUtil.takeInteger();
 
-        displayCarOptions(SIZE, employeeChoice);
-    
+        checkStorage(SIZE, employeeChoice);
     }
 
-    public static void displayCarOptions(int SIZE, int employeeChoice) 
+    public static void checkStorage(int SIZE, int employeeChoice)
     {
-        boolean disabled[] = new boolean[SIZE];
+        if (Rent.getCount() > 50)
+            System.out.println("Reached the limit!");
+        else if (Sell.getCount() > 50)
+            System.out.println("Reached the limit!");
+        else 
+        {
+            System.out.println("Add Car/s Specifications");
+            System.out.println();
+            EmployeeMenu.addCar(SIZE, employeeChoice);
+        }
+    EmployeeMenu.displayCounters();
+    }
+
+    public static void addCar(int SIZE, int employeeChoice) 
+    {
+        String disabled[] = new String[SIZE];
         String bodyType[] = new String[SIZE];
         String fuelType[] = new String[SIZE];
         String transmissionType[] = new String[SIZE];
         String color[] = new String[SIZE];
         int numberOfSeats[] = new int[SIZE];
 
-        System.out.println("Add Car/s Specifications");
-        System.out.println();
-
         for (int i = 0; i < SIZE; i++) 
         {
             while (true) 
             {
+                System.out.println();
                 System.out.println("-" + (i + 1) + "--------------------------------");
                 System.out.println();
 
-                System.out.println("01. Car for people with disabilities? [true/false]");
-                disabled[i] = ScannerUtil.takeBoolean();
+                do 
+                {
+                    System.out.println("01. Car for people with disabilities? [Y/N]");
+                    disabled[i] = ScannerUtil.takeString();
+                } while (disabled[i].toLowerCase() != "y" && disabled[i] != "n");
                 System.out.println("02. Body type:");
                 bodyType[i] = ScannerUtil.takeString();
                 System.out.println("03. Fuel Type:");
@@ -51,17 +69,30 @@ public class EmployeeMenu
 
                 System.out.println();
                 System.out.println("------------------------------");
+                System.out.println();
 
-                System.out.println("Are you sure about the data you entered? [true/false]");
-                boolean flag = ScannerUtil.takeBoolean();
-                if (flag)
+                System.out.println("Are you sure about the data you entered? [Y/N]");
+                String condition = ScannerUtil.takeString();
+                if (condition.toLowerCase().equals("y"))
                     break;
+                System.out.println();
             }
 
             if (employeeChoice == 1)
                 Storage.rentableCar[i] = new Rent(disabled[i], bodyType[i], fuelType[i], transmissionType[i], color[i], numberOfSeats[i]);
             else if (employeeChoice == 2)
-                Storage.buyableCar[i] = new Buy(disabled[i], bodyType[i], fuelType[i], transmissionType[i], color[i], numberOfSeats[i]);
+                Storage.buyableCar[i] = new Sell(disabled[i], bodyType[i], fuelType[i], transmissionType[i], color[i], numberOfSeats[i]);
         }
+        
     }
+
+    public static void displayCounters()
+    {
+        System.out.println();
+        System.out.println("Total: " + (100 - (Sell.getCount() + Rent.getCount())));
+        System.out.println("Rentable: " + Rent.getCount());
+        System.out.println("Buyable: " + Sell.getCount());
+        System.out.println();
+    }
+
 }

@@ -1,11 +1,11 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class ScannerUtil 
 {
     public static Scanner input = new Scanner(System.in);
 
-    // check 123
+    // String
     public static String takeString() 
     {
         while (true) 
@@ -17,29 +17,13 @@ public class ScannerUtil
             }
             catch (InputMismatchException exception) 
             {
-                System.out.println("Expected");
+                System.out.println("Expected Text.");
                 input.next();
             }
         }
     }
 
-    public static boolean takeBoolean() 
-    {
-        while (true) 
-        {
-            try 
-            {
-                boolean flag = input.nextBoolean();
-                return flag;
-            } 
-            catch (InputMismatchException exception) 
-            {
-                System.out.println("Expected [true/false]");
-                input.next();
-            }
-        }
-    }
-
+    // Integer
     public static int takeInteger() 
     {
         while (true) 
@@ -51,12 +35,13 @@ public class ScannerUtil
             } 
             catch (InputMismatchException exception) 
             {
-                System.out.println("Expected a number");
+                System.out.println("Expected Number.");
                 input.next();
             }
         }
     }
 
+    // Options
     public static int takeInteger(int maximum, int minimum) 
     {
         while (true) 
@@ -73,7 +58,7 @@ public class ScannerUtil
             } 
             catch (InputMismatchException exception) 
             {
-                System.out.println("Expected a number");
+                System.out.println("Expected Number.");
                 input.next();
             }
         }
