@@ -3,14 +3,13 @@ public class Human {
     private String username;
     private String password;
 
-    // Constructor for Employee & Customer
+    // Constructor
     public Human(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
     // Getters & Setters
-
     public String getUsername() {
         return username;
     }

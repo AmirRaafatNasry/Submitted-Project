@@ -19,14 +19,6 @@ public class CustomerMenu {
         }
     }
 
-    public static void register() {
-        String email = ScannerUtil.takeString("Email: ");
-        String username = ScannerUtil.takeString("Username: ");
-        String password = ScannerUtil.takeString("Password: ");
-        String phoneNumber = ScannerUtil.takeString("Phone number: ");
-        Storage.customer = new Customer(email, username, password, phoneNumber);
-    }
-
     public static void displayRentableCarsData() {
         for (int i = 0; i < Storage.rentableCarCount; i++) {
             System.out.println();
@@ -83,5 +75,13 @@ public class CustomerMenu {
         // Sets the car as unavailable
         Storage.sellableCar[index].setAvailable(false);
         Storage.customer.setBoughtCars(Storage.sellableCar[index]);
+    }
+
+    public static void register() {
+        String email = ScannerUtil.takeString("Email: ");
+        String username = ScannerUtil.takeString("Username: ");
+        String password = ScannerUtil.takeString("Password: ");
+        String phoneNumber = ScannerUtil.takeString("Phone number: ");
+        Storage.customer = new Customer(email, username, password, phoneNumber);
     }
 }
