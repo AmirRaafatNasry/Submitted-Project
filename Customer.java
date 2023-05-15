@@ -2,8 +2,8 @@ public class Customer extends Human {
     // Attributes
     private String email;
     private String phoneNumber;
-    private RentableCar rentedCars;
-    private SellableCar boughtCars;
+    private RentableCar rentedCar;
+    private SellableCar boughtCar;
 
     // Constructor
     public Customer(String email, String username, String password, String phoneNumber) {
@@ -29,20 +29,20 @@ public class Customer extends Human {
         this.phoneNumber = phoneNumber;
     }
 
-    public RentableCar getRentedCars() {
-        return rentedCars;
+    public RentableCar getRentedCar() {
+        return rentedCar;
     }
 
     public void setRentedCars(RentableCar rentableCar) {
-        this.rentedCars = rentableCar;
+        this.rentedCar = rentableCar;
     }
 
-    public SellableCar getBoughtCars() {
-        return boughtCars;
+    public SellableCar getBoughtCar() {
+        return boughtCar;
     }
 
-    public void setBoughtCars(SellableCar boughtCars) {
-        this.boughtCars = boughtCars;
+    public void setBoughtCars(SellableCar boughtCar) {
+        this.boughtCar = boughtCar;
     }
 
 }

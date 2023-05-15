@@ -18,8 +18,8 @@ public class CustomerMenu {
 
     public static void rentableCarsData() {
         for (int i = 0; i < Storage.rentableCarCount; i++) {
-            System.out.println("- " + (i + 1) + " --------------------------------");
             System.out.println();
+            System.out.println("- " + (i + 1) + " --------------------------------");
 
             if (Storage.rentableCar[i].isAvailable()) {
                 System.out.println("01. Car Accessibility? " + Storage.rentableCar[i].getAccessibility());
@@ -31,22 +31,23 @@ public class CustomerMenu {
             } else
                 System.out.println("Not Available");
 
-            System.out.println();
             System.out.println("----------------------------------");
             System.out.println();
         }
 
+        // Takes Customer Choice
         int rented = ScannerUtil.takeInteger(Storage.rentableCarCount, 1);
-        int index = rented - 1;
+        int index = (rented - 1);
 
+        // Sets the car as unavailable
         Storage.rentableCar[index].setAvailable(false);
         Storage.customer.setRentedCars(Storage.rentableCar[index]);
     }
 
     public static void buyableCarData() {
         for (int i = 0; i < Storage.sellableCarCount; i++) {
-            System.out.println("- " + (i + 1) + " --------------------------------");
             System.out.println();
+            System.out.println("- " + (i + 1) + " --------------------------------");
 
             if (Storage.sellableCar[i].isAvailable()) {
                 System.out.println("01. Car Accessibility? " + Storage.sellableCar[i].getAccessibility());
@@ -58,14 +59,16 @@ public class CustomerMenu {
             } else
                 System.out.println("Not Available");
 
-            System.out.println();
             System.out.println("----------------------------------");
             System.out.println();
-
-            int bought = ScannerUtil.takeInteger(Storage.sellableCarCount, 1);
-            int index = bought - 1;
-            Storage.sellableCar[index].setAvailable(false);
-            Storage.customer.setBoughtCars(Storage.sellableCar[index]);
         }
+
+        // Takes Customer Choice
+        int bought = ScannerUtil.takeInteger(Storage.sellableCarCount, 1);
+        int index = (bought - 1);
+
+        // Sets the car as unavailable 
+        Storage.sellableCar[index].setAvailable(false);
+        Storage.customer.setBoughtCars(Storage.sellableCar[index]);
     }
 }
