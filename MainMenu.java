@@ -1,11 +1,14 @@
-public class MainMenu {
-    public static void start() {
-        printRules();
+public class MainMenu 
+{
+    public static void start() 
+    {
+        printTermsAndConditions();
         printInstructions();
         chooseOption();
     }
 
-    public static void printRules() {
+    public static void printTermsAndConditions() 
+    {
         System.out.println("--------------------------------------------------");
         System.out.println("\"Quality is Job One.\"");
         System.out.println("- Canadian International College (CIC) Car Agency");
@@ -36,14 +39,16 @@ public class MainMenu {
         System.out.println("    D) ");
         System.out.println("---------------------------------------------------");
 
-        while (true) {
+        while (true) 
+        {
             String condition = ScannerUtil.takeString("Do you agree to our Terms & Conditions? [Y/N]");
             if (condition.toLowerCase().equals("y"))
                 break;
         }
     }
 
-    public static void printInstructions() {
+    public static void printInstructions() 
+    {
         System.out.println("---------------------------------------------------");
         System.out.println("01. ");
         System.out.println("02. ");
@@ -51,15 +56,18 @@ public class MainMenu {
         System.out.println("04. ");
         System.out.println("---------------------------------------------------");
 
-        while (true) {
+        while (true) 
+        {
             String condition = ScannerUtil.takeString("Proceed? [Y/N]");
             if (condition.toLowerCase().equals("y"))
                 break;
         }
     }
 
-    public static void chooseOption() {
-        while (true) {
+    public static void chooseOption() 
+    {
+        while (true) 
+        {
             // Options
             System.out.println("01. Customer");
             System.out.println("02. Employee");
@@ -77,7 +85,6 @@ public class MainMenu {
                 case (0):
                     System.exit(0);
             }
-
         }
     }
 

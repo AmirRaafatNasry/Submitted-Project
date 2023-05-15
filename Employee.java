@@ -13,7 +13,6 @@ public class Employee extends Human {
             else
                 System.out.println("Wrong Entry.");
         }
-
         String password;
         while (true) {
             password = ScannerUtil.takeString("Password: ");
