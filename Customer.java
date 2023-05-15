@@ -44,5 +44,4 @@ public class Customer extends Human {
     public void setBoughtCars(SellableCar boughtCar) {
         this.boughtCar = boughtCar;
     }
-
 }

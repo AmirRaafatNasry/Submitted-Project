@@ -57,7 +57,7 @@ public class EmployeeMenu {
             if (employeeChoice == 1)
                 Storage.rentableCar[i] = new RentableCar(accessibility, bodyType, fuelType, transmissionType, color,
                         numberOfSeats);
-            else if (employeeChoice == 2)
+            else
                 Storage.sellableCar[i] = new SellableCar(accessibility, bodyType, fuelType, transmissionType, color,
                         numberOfSeats);
         }

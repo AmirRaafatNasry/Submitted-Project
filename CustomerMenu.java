@@ -4,10 +4,23 @@ public class CustomerMenu {
         System.out.println("02. Buy");
         int customerChoice = ScannerUtil.takeInteger(2, 1);
 
-        if (customerChoice == 1)
+        if (Storage.rentableCarCount == 0)
+            System.out.println("There is no cars for rent");
+        else if (customerChoice == 1)
             displayRentableCarsData();
+
+        if (Storage.sellableCarCount == 0)
+            System.out.println("There is no cars for selling");
         else if (customerChoice == 2)
             displayBuyableCarsData();
+    }
+
+    public static void register() {
+        String email = ScannerUtil.takeString("Email: ");
+        String username = ScannerUtil.takeString("Username: ");
+        String password = ScannerUtil.takeString("Password: ");
+        String phoneNumber = ScannerUtil.takeString("Phone number: ");
+        Storage.customer = new Customer(email, username, password, phoneNumber);
     }
 
     public static void displayRentableCarsData() {
@@ -66,13 +79,5 @@ public class CustomerMenu {
         // Sets the car as unavailable
         Storage.sellableCar[index].setAvailable(false);
         Storage.customer.setBoughtCars(Storage.sellableCar[index]);
-    }
-
-    public static void register() {
-        String email = ScannerUtil.takeString("Email: ");
-        String username = ScannerUtil.takeString("Username: ");
-        String password = ScannerUtil.takeString("Password: ");
-        String phoneNumber = ScannerUtil.takeString("Phone number: ");
-        Storage.customer = new Customer(email, username, password, phoneNumber);
     }
 }
