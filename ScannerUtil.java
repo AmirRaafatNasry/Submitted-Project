@@ -34,7 +34,6 @@ public class ScannerUtil {
                     System.out.println("Wrong Entry.");
                 else
                     return number;
-
             } catch (InputMismatchException exception) {
                 System.out.println("Expected Number.");
                 input.next();
