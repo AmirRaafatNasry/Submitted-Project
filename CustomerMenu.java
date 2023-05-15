@@ -29,10 +29,11 @@ public class CustomerMenu {
             System.out.println();
         }
 
-        register();
         // Takes Customer Choice
         int rented = ScannerUtil.takeInteger(Storage.rentableCarCount, 1);
         int index = (rented - 1);
+        // register
+        register();
         // Sets the car as unavailable
         Storage.rentableCar[index].setAvailable(false);
         Storage.customer.setRentedCars(Storage.rentableCar[index]);
@@ -57,17 +58,17 @@ public class CustomerMenu {
             System.out.println();
         }
 
-        register();
         // Takes Customer Choice
         int bought = ScannerUtil.takeInteger(Storage.sellableCarCount, 1);
         int index = (bought - 1);
-        // Sets the car as unavailable 
+        // register
+        register();
+        // Sets the car as unavailable
         Storage.sellableCar[index].setAvailable(false);
         Storage.customer.setBoughtCars(Storage.sellableCar[index]);
     }
 
-    public static void register()
-    {
+    public static void register() {
         String email = ScannerUtil.takeString("Email: ");
         String username = ScannerUtil.takeString("Username: ");
         String password = ScannerUtil.takeString("Password: ");
