@@ -4,15 +4,19 @@ public class CustomerMenu {
         System.out.println("02. Buy");
         int customerChoice = ScannerUtil.takeInteger(2, 1);
 
-        if (Storage.rentableCarCount == 0)
-            System.out.println("There is no cars for rent");
-        else if (customerChoice == 1)
-            displayRentableCarsData();
+        if (customerChoice == 1) {
+            if (Storage.rentableCarCount == 0)
+                System.out.println("There is no cars for rent");
+            else
+                displayRentableCarsData();
+        }
 
-        if (Storage.sellableCarCount == 0)
-            System.out.println("There is no cars for selling");
-        else if (customerChoice == 2)
-            displayBuyableCarsData();
+        if (customerChoice == 2) {
+            if (Storage.sellableCarCount == 0)
+                System.out.println("There is no cars for selling");
+            else
+                displayBuyableCarsData();
+        }
     }
 
     public static void register() {
