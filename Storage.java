@@ -1,4 +1,5 @@
-public class Storage {
+public class Storage 
+{
     static int max = 50; // To avoid magic number
     static int rentableCarCount = 0;
     static int sellableCarCount = 0;

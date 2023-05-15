@@ -1,4 +1,5 @@
-public class Customer extends Human {
+public class Customer extends Human 
+{
     // Attributes
     private String email;
     private String phoneNumber;
@@ -6,7 +7,8 @@ public class Customer extends Human {
     private SellableCar boughtCar;
 
     // Constructor
-    public Customer(String email, String username, String password, String phoneNumber) {
+    public Customer(String email, String username, String password, String phoneNumber) 
+    {
         super(username, password);
         this.email = email;
         this.phoneNumber = phoneNumber;

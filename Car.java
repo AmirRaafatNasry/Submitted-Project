@@ -1,4 +1,5 @@
-public class Car {
+public class Car 
+{
     // Attributes
     private String accessibility;
     private String bodyType;
@@ -9,8 +10,8 @@ public class Car {
     private boolean isAvailable = true;
 
     // Constructor
-    public Car(String accessibility, String bodyType, String fuelType, String transmissionType, String color,
-            int numberOfSeats) {
+    public Car(String accessibility, String bodyType, String fuelType, String transmissionType, String color,int numberOfSeats) 
+    {
         this.accessibility = accessibility;
         this.bodyType = bodyType;
         this.fuelType = fuelType;

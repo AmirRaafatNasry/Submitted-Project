@@ -4,7 +4,7 @@ public class MainMenu
     {
         printTermsAndConditions();
         printInstructions();
-        chooseOption();
+        chooseUser();
     }
 
     public static void printTermsAndConditions() 
@@ -64,7 +64,7 @@ public class MainMenu
         }
     }
 
-    public static void chooseOption() 
+    public static void chooseUser() 
     {
         while (true) 
         {
@@ -74,7 +74,8 @@ public class MainMenu
             System.out.println("00. Exit");
 
             // Choose
-            switch (ScannerUtil.takeInteger(2, 0)) {
+            switch (ScannerUtil.takeInteger(2, 0)) 
+            {
                 case (1):
                     CustomerMenu.start();
                     break;

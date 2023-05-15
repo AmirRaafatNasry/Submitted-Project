@@ -14,28 +14,28 @@ public class ScannerUtil
     }
 
     // Integer
-    public static int takeInteger(String message) 
+    public static int takeInteger(String message)
     {
         while (true) 
         {
-            try 
+            try
             {
                 System.out.println(message);
                 int number = input.nextInt();
                 return number;
-            }
+            } 
             catch (InputMismatchException exception) 
             {
                 System.out.println("Expected Number.");
-                input.next();
+                input.next(); // clears buffer
             }
         }
     }
 
     // Options
-    public static int takeInteger(int maximum, int minimum) 
+    public static int takeInteger(int maximum, int minimum)
     {
-        while (true) 
+        while (true)
         {
             try 
             {
@@ -45,11 +45,11 @@ public class ScannerUtil
                     System.out.println("Wrong Entry.");
                 else
                     return number;
-            }
+            } 
             catch (InputMismatchException exception) 
             {
                 System.out.println("Expected Number.");
-                input.next();
+                input.next(); // clears buffer
             }
         }
     }

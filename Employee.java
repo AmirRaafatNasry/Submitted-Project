@@ -1,12 +1,16 @@
-public class Employee extends Human {
+public class Employee extends Human 
+{
     // Constructor
-    public Employee(String username, String password) {
+    public Employee(String username, String password) 
+    {
         super(username, password);
     }
 
-    public static void login() {
+    public static void login() 
+    {
         String username;
-        while (true) {
+        while (true) 
+        {
             username = ScannerUtil.takeString("Username: ");
             if (username.equals(Storage.admin.getPassword()))
                 break;
@@ -14,7 +18,8 @@ public class Employee extends Human {
                 System.out.println("Wrong Entry.");
         }
         String password;
-        while (true) {
+        while (true) 
+        {
             password = ScannerUtil.takeString("Password: ");
             if (password.equals(Storage.admin.getPassword()))
                 break;

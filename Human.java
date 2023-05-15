@@ -1,10 +1,12 @@
-public class Human {
+public class Human 
+{
     // Attributes
     private String username;
     private String password;
 
     // Constructor
-    public Human(String username, String password) {
+    public Human(String username, String password) 
+    {
         this.username = username;
         this.password = password;
     }

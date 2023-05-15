@@ -1,32 +1,38 @@
-public class EmployeeMenu {
-    public static void start() {
+public class EmployeeMenu 
+{
+    public static void start() 
+    {
         displayOptions();
     }
 
-    public static void displayOptions() {
+    public static void displayOptions() 
+    {
         System.out.println("01. Add Rentable Car.");
         System.out.println("02. Add Sellable Car.");
         int employeeChoice = ScannerUtil.takeInteger(2, 1);
 
         displayCounters();
-        int SIZE = ScannerUtil.takeInteger("Number of cars you would like to add? ");
+        int SIZE = ScannerUtil.takeInteger("Number of cars you would like to add?");
 
         checkStorage(SIZE, employeeChoice);
     }
 
-    public static void checkStorage(int SIZE, int employeeChoice) {
+    public static void checkStorage(int SIZE, int employeeChoice) 
+    {
         if (Storage.rentableCarCount > Storage.max)
             System.out.println("Reached the limit for rentable cars!");
         else if (Storage.sellableCarCount > Storage.max)
             System.out.println("Reached the limit for sellable car!");
-        else {
+        else 
+        {
             System.out.println("Add Car/s Specifications");
             System.out.println();
             EmployeeMenu.addCar(SIZE, employeeChoice);
         }
     }
 
-    public static void addCar(int SIZE, int employeeChoice) {
+    public static void addCar(int SIZE, int employeeChoice) 
+    {
         String accessibility;
         String bodyType;
         String fuelType;
@@ -34,8 +40,10 @@ public class EmployeeMenu {
         String color;
         int numberOfSeats;
 
-        for (int i = 0; i < SIZE; i++) {
-            while (true) {
+        for (int i = 0; i < SIZE; i++) 
+        {
+            while (true) 
+            {
                 System.out.println();
                 System.out.println("-" + (i + 1) + "--------------------------------");
 
@@ -63,7 +71,8 @@ public class EmployeeMenu {
         }
     }
 
-    public static void displayCounters() {
+    public static void displayCounters() 
+    {
         System.out.println("Total: " + (100 - (Storage.sellableCarCount + Storage.rentableCarCount)));
         System.out.println("Rentable: [" + Storage.max + " / " + Storage.rentableCarCount + "]");
         System.out.println("Sellable: [" + Storage.max + " / " + Storage.sellableCarCount + "]");
