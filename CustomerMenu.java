@@ -1,22 +1,16 @@
 public class CustomerMenu {
     public static void start() {
-        String email = ScannerUtil.takeString("Email: ");
-        String username = ScannerUtil.takeString("Username: ");
-        String password = ScannerUtil.takeString("Password: ");
-        String phoneNumber = ScannerUtil.takeString("Phone number: ");
-        Storage.customer = new Customer(email, username, password, phoneNumber);
-
         System.out.println("01. Rent");
         System.out.println("02. Buy");
         int customerChoice = ScannerUtil.takeInteger(2, 1);
 
         if (customerChoice == 1)
-            rentableCarsData();
+            displayRentableCarsData();
         else if (customerChoice == 2)
-            buyableCarData();
+            displayBuyableCarsData();
     }
 
-    public static void rentableCarsData() {
+    public static void displayRentableCarsData() {
         for (int i = 0; i < Storage.rentableCarCount; i++) {
             System.out.println();
             System.out.println("- " + (i + 1) + " --------------------------------");
@@ -35,16 +29,16 @@ public class CustomerMenu {
             System.out.println();
         }
 
+        register();
         // Takes Customer Choice
         int rented = ScannerUtil.takeInteger(Storage.rentableCarCount, 1);
         int index = (rented - 1);
-
         // Sets the car as unavailable
         Storage.rentableCar[index].setAvailable(false);
         Storage.customer.setRentedCars(Storage.rentableCar[index]);
     }
 
-    public static void buyableCarData() {
+    public static void displayBuyableCarsData() {
         for (int i = 0; i < Storage.sellableCarCount; i++) {
             System.out.println();
             System.out.println("- " + (i + 1) + " --------------------------------");
@@ -63,12 +57,21 @@ public class CustomerMenu {
             System.out.println();
         }
 
+        register();
         // Takes Customer Choice
         int bought = ScannerUtil.takeInteger(Storage.sellableCarCount, 1);
         int index = (bought - 1);
-
         // Sets the car as unavailable 
         Storage.sellableCar[index].setAvailable(false);
         Storage.customer.setBoughtCars(Storage.sellableCar[index]);
+    }
+
+    public static void register()
+    {
+        String email = ScannerUtil.takeString("Email: ");
+        String username = ScannerUtil.takeString("Username: ");
+        String password = ScannerUtil.takeString("Password: ");
+        String phoneNumber = ScannerUtil.takeString("Phone number: ");
+        Storage.customer = new Customer(email, username, password, phoneNumber);
     }
 }

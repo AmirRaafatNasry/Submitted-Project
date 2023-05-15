@@ -66,7 +66,7 @@ public class MainMenu {
             System.out.println("00. Exit");
 
             // Choose
-            switch (ScannerUtil.takeInteger(2, 1)) {
+            switch (ScannerUtil.takeInteger(2, 0)) {
                 case (1):
                     CustomerMenu.start();
                     break;
