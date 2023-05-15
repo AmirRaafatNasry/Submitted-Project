@@ -40,6 +40,7 @@ public class ScannerUtil
             try 
             {
                 int number = input.nextInt();
+                // out of range
                 if (number > maximum || number < minimum)
                     System.out.println("Wrong Entry.");
                 else
